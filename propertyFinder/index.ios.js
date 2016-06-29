@@ -12,3 +12,9 @@ var styles = React.StyleSheet.create({
     margin: 80
   }
 });
+
+class propertyFinderApp extends React.Component{
+  render(){
+    return React.createElement(React.Text, {style: styles.text}, 'Hello World!');
+  }
+}
