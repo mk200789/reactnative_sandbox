@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import SideMenu from './js/mainScreen'
+import SideMenu from './js/stackInDrawNav'
 
 export default class AppContainer extends Component {
   constructor(props){
