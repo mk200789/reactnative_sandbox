@@ -9,7 +9,11 @@ import {
 export default class AppContainer extends Component {
   constructor(props){
     super(props)
-    this.state = { backgroundColor: '#FFFFFF', fontColor: '#000000'}
+    this.state = {
+      backgroundColor: '#FFFFFF',
+      fontColor: '#000000',
+      displayText: 'Click me for a color!'
+    }
   }
 
   componentWillMount(){
@@ -30,10 +34,11 @@ export default class AppContainer extends Component {
   }
 
   render(){
+    const {displayText} = this.state
     return(
       <View style={{flex:1, justifyContent:'center', alignItems:'center', backgroundColor: this.state.backgroundColor}}>
         <TouchableOpacity onPress={this._onPressButton.bind(this)}>
-          <Text style={{color: this.state.fontColor, fontSize: 20}}>Click me for color!</Text>
+          <Text style={{color: this.state.fontColor, fontSize: 20}}>{displayText}</Text>
         </TouchableOpacity>
       </View>
     )
