@@ -12,6 +12,10 @@ export default class AppContainer extends Component {
     this.state = { backgroundColor: '#FFFFFF', fontColor: '#000000'}
   }
 
+  componentWillMount(){
+    this.setState({backgroundColor: this.generateRandomHex()});
+  }
+
   _onPressButton(){
     var hexval = this.generateRandomHex();
     this.setState({backgroundColor: hexval});
@@ -42,15 +46,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
