@@ -17,20 +17,31 @@ export default class AppContainer extends Component {
   }
 
   componentWillMount(){
-    this.setState({backgroundColor: this.generateRandomHex()});
+    this.changeContent();
   }
 
   _onPressButton(){
+    this.changeContent();
+  }
+  changeContent(){
+    /*
+    Change the backgroundColor, displayText, and fontColor based on randomly
+    generate hex value.
+    */
     var hexval = this.generateRandomHex();
     this.setState({backgroundColor: hexval});
+    this.setState({displayText: "Hi, I'm "  + hexval})
 
     if (hexval == "#000000"){
       this.setState({fontColor: "#FFFFFF"})
     }
   }
-
   generateRandomHex(){
-      return '#' + Math.random().toString(16).slice(2, 8);
+    /*
+    Simple random hex value generator.
+    Returns a string.
+    */
+    return '#' + Math.random().toString(16).slice(2, 8);
   }
 
   render(){
@@ -44,12 +55,3 @@ export default class AppContainer extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
