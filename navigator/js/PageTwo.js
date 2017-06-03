@@ -7,6 +7,7 @@ export default class PageTwo extends Component{
     return(
       <View style={{margin: 128}}>
         <Text>This is PageTwo!</Text>
+        <Text>{this.props.text}</Text>
       </View>
     )
   }
