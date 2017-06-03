@@ -5,21 +5,17 @@ import {
   View
 } from 'react-native';
 
+import {Router, Scene} from 'react-native-router-flux';
+
 export default class AppContainer extends Component {
   render(){
     return(
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="pageOne" title="Page One" component={PageOne} initial={true} />
+          <Scene key="pageTwo" title="Page Two" component{pageTwo} />
+        </Scene>
+      </Router>
     )
   }
 }
