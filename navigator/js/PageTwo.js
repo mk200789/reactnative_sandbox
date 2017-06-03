@@ -8,6 +8,7 @@ export default class PageTwo extends Component{
       <View style={{margin: 128}}>
         <Text>This is PageTwo!</Text>
         <Text>{this.props.text}</Text>
+        <Text style={{color: 'red', backgroundColor: 'yellow'}} onPress={Actions.pageThree}>Click here to go to PageThree!</Text>
       </View>
     )
   }
