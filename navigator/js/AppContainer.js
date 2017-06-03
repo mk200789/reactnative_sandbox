@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 
 import {Router, Scene} from 'react-native-router-flux';
+import PageOne from './PageOne'
+import PageTwo from './PageTwo'
 
 export default class AppContainer extends Component {
   render(){
@@ -13,7 +15,7 @@ export default class AppContainer extends Component {
       <Router>
         <Scene key="root">
           <Scene key="pageOne" title="Page One" component={PageOne} initial={true} />
-          <Scene key="pageTwo" title="Page Two" component{pageTwo} />
+          <Scene key="pageTwo" title="Page Two" component={PageTwo} />
         </Scene>
       </Router>
     )
