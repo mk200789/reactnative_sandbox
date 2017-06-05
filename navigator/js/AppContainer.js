@@ -11,14 +11,18 @@ import PageOne from './PageOne'
 import PageTwo from './PageTwo'
 import PageThree from './PageThree'
 
+import NavigationDrawer from './NavigatorDrawer'
+
 export default class AppContainer extends Component {
   render(){
     return(
       <Router>
-        <Scene key="root">
-          <Scene key="pageOne" title="Page One" component={PageOne} initial={true} type={ActionConst.REPLACE}/>
-          <Scene key="pageTwo" title="Page Two" component={PageTwo} type={ActionConst.REPLACE}/>
-          <Scene key="pageThree" title="Page Three" component={PageThree} type={ActionConst.REPLACE}/>
+        <Scene key="drawer" component={NavigationDrawer} open={false} >
+          <Scene key="root">
+            <Scene key="pageOne" title="Page One" component={PageOne} initial={true} type={ActionConst.REPLACE} />
+            <Scene key="pageTwo" title="Page Two" component={PageTwo} type={ActionConst.REPLACE} />
+            <Scene key="pageThree" title="Page Three" component={PageThree} type={ActionConst.REPLACE} />
+          </Scene>
         </Scene>
       </Router>
     )
