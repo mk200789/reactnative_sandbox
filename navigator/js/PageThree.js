@@ -3,6 +3,11 @@ import {Actions} from 'react-native-router-flux';
 import {Text, View} from 'react-native';
 
 export default class PageThree extends Component{
+  componentWillMount(){
+    Actions.refresh({key: 'drawer', open: value => !value });
+    console.log("page three: ", this);
+  }
+
   render(){
     return(
       <View style={{margin: 128}}>

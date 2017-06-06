@@ -14,8 +14,6 @@ export default class NavigationDrawer extends Component{
   render(){
     const state = this.props.navigationState;
     const children = state.children;
-    console.log("state: ", state);
-    console.log("this: ", this)
     return(
       <Drawer
           ref={(ref) => {this._drawer = ref}}

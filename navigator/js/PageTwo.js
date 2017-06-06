@@ -3,6 +3,10 @@ import {Text, View } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 export default class PageTwo extends Component{
+  componentWillMount(){
+    Actions.refresh({key: 'drawer', open: value => !value });
+    console.log("page two: ", this);
+  }
   render(){
     return(
       <View style={{margin: 128}}>
