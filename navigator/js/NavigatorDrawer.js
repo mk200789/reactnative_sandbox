@@ -10,18 +10,39 @@ export default class NavigationDrawer extends Component{
     super(props)
   }
 
+  _onClose(statekey){
+    Actions.refresh({key:statekey, open: false})
+  }
+
+  _onOpen(statekey){
+    Actions.refresh({key:statekey, open: true})
+  }
+
+  _hideMenu(){
+    this._drawer.close()
+  }
+
+  _pressMenu(action, title){
+    console.log("pressmenu: ", title, this)
+    if (this.props.state.current_page == title){
+      console.log("going to the same page")
+      this._hideMenu()
+    }
+    action()
+  }
 
   render(){
+    console.log("NavigationDrawer.js: ", this)
     const state = this.props.navigationState;
     const children = state.children;
     return(
       <Drawer
           ref={(ref) => {this._drawer = ref}}
           open={state.open}
-          onOpen={()=>Actions.refresh({key:state.key, open: true})}
-          onClose={()=>Actions.refresh({key:state.key, open: false})}
+          onOpen={this._onOpen.bind(state.key)}
+          onClose={this._onClose.bind(state.key)}
           type="overlay"
-          content={<SideMenu />}
+          content={<SideMenu state={this.props.state} hideMenu={this._hideMenu.bind(this)} pressMenu={this._pressMenu.bind(this)}/>}
           tapToClose={true}
           openDrawerOffset={0.2}
           panCloseMask={0.2}

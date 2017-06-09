@@ -17,7 +17,7 @@ import NavigationDrawer from './NavigatorDrawer'
 export default class AppContainer extends Component {
   constructor(props){
     super(props)
-    this.state = {hasLoad: false}
+    this.state = {hasLoad: false, current_page: ""}
   }
 
   render(){

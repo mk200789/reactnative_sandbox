@@ -1,20 +1,26 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, Text, View, StyleSheet} from 'react-native';
+import {TouchableOpacity, Text, View, StyleSheet, Dimensions} from 'react-native';
 
 import Drawer from 'react-native-drawer';
 import {Actions, DefaultRenderer} from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const { height, width } = Dimensions.get('window');
 
 
 export default class SideMenu extends Component {
+
     render(){
+      console.log("SideMenu: ", this)
+
       const menuDescription = [
-        {title: 'Page One', key: ()=>Actions.pageOne()},
-        {title: 'Page Two', key: ()=> Actions.pageTwo()},
-        {title: 'Page Three', key: ()=> Actions.pageThree()}
+        {id: 1, title: 'Page One', nav: Actions.pageOne},
+        {id: 2, title: 'Page Two', nav: Actions.pageTwo},
+        {id: 3, title: 'Page Three', nav: Actions.pageThree}
       ];
 
       const menuItems = menuDescription.map(item => (
-        <TouchableOpacity key={item.key} onPress={item.key}>
+        <TouchableOpacity key={item.id} onPress={this.props.pressMenu.bind(this, item.nav, item.title)}>
           <View>
             <Text>
             {item.title}
@@ -25,15 +31,11 @@ export default class SideMenu extends Component {
 
 
       return (
-        <View style={{backgroundColor: 'red', flex: 1, paddingTop: 30}}>
-          {menuItems}
-        </View>
+        <View style={{ flex: 1, backgroundColor: 'red' }}>
+            <View style={{ height, alignItems: 'center', justifyContent: 'center' }}>
+              { menuItems }
+            </View>
+          </View>
       )
-        // return(
-        //         <View style={{backgroundColor: 'red', flex: 1}}>
-        //           <Text>This is side menu!</Text>
-        //         </View>
-        //
-        // );
     }
 }
